@@ -2,10 +2,11 @@ using System;
 					
 public class Program
 {
+	// creating object called Random
+	Random rnd = new Random();
 	public void Main()
 	{
-		// generating random number and making it a variable
-		Random rnd = new Random(); 
+		// generating random number and making it a variable 
 		int num = rnd.Next(1, 11);
 		
 		Console.WriteLine(num);
