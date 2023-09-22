@@ -9,7 +9,8 @@ public class Program
 		// generating random number and making it a variable 
 		int num = rnd.Next(1, 11);
 		
-		Console.WriteLine(num);
+		// if the following line is executed, it will show the value of the num variable
+		/* Console.WriteLine(num); */
 		
 		// asking user for input and turning it into a variable
 		Console.WriteLine("Guess a number between 1 and 10.");
