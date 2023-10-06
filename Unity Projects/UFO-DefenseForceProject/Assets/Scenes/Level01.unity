@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 183259785}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,8 +334,11 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 15
   xRange: 35
+  inventory:
+  - {fileID: 0}
   blaster: {fileID: 1983159482}
   lazerBolt: {fileID: 8621759389752865619, guid: 3222c7fe2f75f574680e2e72ab5aaa39, type: 3}
+  item: {fileID: 7980835992670453112, guid: 266bf18e769d46a44a08727c66aa90be, type: 3}
 --- !u!1 &227722370
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +615,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &968733257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 968733258}
+  - component: {fileID: 968733259}
+  m_Layer: 0
+  m_Name: Item Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &968733258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968733257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.85}
+  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &968733259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968733257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d301f27e934a7a14f884a0f94d0e0f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 7980835992670453112, guid: 266bf18e769d46a44a08727c66aa90be, type: 3}
+  itemSpawn: {fileID: 968733258}
+  interval: 5
 --- !u!1 &1983159481
 GameObject:
   m_ObjectHideFlags: 0

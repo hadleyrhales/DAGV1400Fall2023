@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float speed;
     public float xRange;
+    
+    public GameObject[] inventory = new GameObject[1];
 
     public Transform blaster;
     public GameObject lazerBolt;
+    public GameObject item;
 
     // Update is called once per frame
     void Update()
@@ -39,9 +42,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    // checks if object is an item
+        // if it is, it will store item in inventory array
     // deletes any object that has a trigger when object hits player
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            inventory[0] = other.gameObject;
+            print(inventory);
+        }
         Destroy(other.gameObject);
     }
 }
