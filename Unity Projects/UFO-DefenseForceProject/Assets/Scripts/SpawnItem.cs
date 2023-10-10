@@ -2,30 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnItem : MonoBehaviour
 {
-    public GameObject item;
-    public Transform itemSpawn;
+    public GameObject[] itemPrefabs;
 
-    public float interval = 5;
-    private float timer;
-    
-    // needs to spawn item
-    // item moves down screen
-    // when item collides with player it is recorded in inventory and destroyed
-        // is destroyed on collision
-        // needs to be recorded in variable "inventory"
+    private float spawnRangeX = 20f;
+    private float spawnPosZ = 20f;
 
-    // Update is called once per frame
-    void Update()
+    private float spawnInterval = 8f;
+    private float startDelay = 5f;
+
+    void Start()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= interval)
-        {
-            Instantiate(item, itemSpawn.transform.position, item.transform.rotation);
-            timer -= interval;
-        }
+        InvokeRepeating("SpawnRandomItem", startDelay, spawnInterval);
+    }
+    
+    void SpawnRandomItem()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        int itemIndex = Random.Range(0, itemPrefabs.Length);
+        Instantiate(itemPrefabs[itemIndex], spawnPos, itemPrefabs[itemIndex].transform.rotation);
     }
 }

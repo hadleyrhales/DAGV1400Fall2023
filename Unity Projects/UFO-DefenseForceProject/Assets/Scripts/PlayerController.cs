@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     // deletes any object that has a trigger when object hits player
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger start");
         if (other.gameObject.CompareTag("Item"))
         {
             inventory[0] = other.gameObject;
