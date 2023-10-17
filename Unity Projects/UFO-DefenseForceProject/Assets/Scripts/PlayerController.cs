@@ -5,15 +5,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // player movement
     public float horizontalInput;
     public float speed;
     public float xRange;
-    
+   
+    // item inventory
     public GameObject[] inventory = new GameObject[1];
 
+    // player-enabled projectile
     public Transform blaster;
     public GameObject lazerBolt;
-    public GameObject item;
+
+    // access to GameManager
+    public GameManager gameManager;
+
+    void Start()
+    {
+        // allows reference to GameManager script component
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,7 +47,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // if space bar is pressed fires lazerBolt
-        if (Input.GetKeyDown(KeyCode.Space))
+        // second condition (gameManager bool) prevents lazer bolt from being fired after game has ended
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
             // creates lazerBolt at blaster position while maintaining the bolt's rotation
             Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
