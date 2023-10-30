@@ -2,12 +2,11 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
-public class TextLabelBehavior : MonoBehaviour
+public class AmmoTextLabelBehavior : MonoBehaviour
 {
     public Text label;
-    public FloatData dataObj;
-
+    public IntData dataObj;
+    
     private void Start()
     {
         label = GetComponent<Text>();
