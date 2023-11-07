@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameOver; // helps determines game's state
     private GameObject gameOverText; // access to GameOverText UI element
+    public AudioClip failSound;
+    private AudioSource managerAudio;
 
     void Awake()
     {
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        managerAudio = GetComponent<AudioSource>();
         gameOverText = GameObject.Find("GameOverText"); // finds GameOverText UI element
     }
 
@@ -37,7 +40,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        // reveals GameOverText and freezes game
+        // plays failSound, reveals GameOverText, and freezes game
+        managerAudio.PlayOneShot(failSound, 1f);
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
     }

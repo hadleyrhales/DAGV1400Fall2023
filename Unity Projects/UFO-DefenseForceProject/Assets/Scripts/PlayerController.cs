@@ -20,10 +20,19 @@ public class PlayerController : MonoBehaviour
     // access to GameManager
     public GameManager gameManager;
 
+    // access to sound effect for blaster
+    public AudioClip blasterSound;
+
+    // access to audio source component
+    private AudioSource playerAudio;
+
     void Start()
     {
         // allows reference to GameManager script component
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        // allows reference to audio source component attached to player
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,6 +61,9 @@ public class PlayerController : MonoBehaviour
         {
             // creates lazerBolt at blaster position while maintaining the bolt's rotation
             Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
+            
+            // plays sound when bolt is fired
+            playerAudio.PlayOneShot(blasterSound, 1f);
         }
     }
     
