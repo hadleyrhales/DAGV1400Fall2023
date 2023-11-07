@@ -7,8 +7,8 @@ public class DetectCollision : MonoBehaviour
 {
    public ScoreManager scoreManager; // access to ScoreManager
    public int scoreToGive; // score associated with attached gameObject
-   public AudioClip destructSound;
-   public AudioSource enemyAudio;
+   public AudioClip destructSound; // access to sound effect for destruction
+   private AudioSource enemyAudio; // access to audio source component
 
    void Start()
    {

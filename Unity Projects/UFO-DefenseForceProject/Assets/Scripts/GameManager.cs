@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameOver; // helps determines game's state
     private GameObject gameOverText; // access to GameOverText UI element
-    public AudioClip failSound;
-    private AudioSource managerAudio;
+    public AudioClip failSound; // access to sound effect for game over
+    private AudioSource managerAudio; // access to audio source component
 
     void Awake()
     {
