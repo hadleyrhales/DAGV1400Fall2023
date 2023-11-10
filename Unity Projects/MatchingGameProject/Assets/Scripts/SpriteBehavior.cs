@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpriteBehavior : MonoBehaviour
 {
     private SpriteRenderer rendererObj;
-    void Start()
+    void Awake()
     {
         rendererObj = GetComponent<SpriteRenderer>();
     }
