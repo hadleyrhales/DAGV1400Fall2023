@@ -15,7 +15,7 @@ public class MatchBehavior : MonoBehaviour
 
     private IEnumerator OnTriggerEnter(Collider other) 
     {
-        var tempObj = other.GetComponent<IDContainerBehavior>(); //gets id container script and sets it as a variable
+        var tempObj = other.GetComponent<MatchBehavior>(); //gets match behavior script and sets it as a variable
         if (tempObj == null) //checks if variable is null
             yield break; //stops running rest of script
             
